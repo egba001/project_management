@@ -1,5 +1,13 @@
 import { useState, useEffect } from 'react';
 import Lane from '../../Lane/Lane';
+import './Board.css';
+
+const lanes = [
+    { id: 1, title: 'To Do' },
+    { id: 2, title: 'In Progress' },
+    { id: 3, title: 'Review' },
+    { id: 4, title: 'Done' },
+];
 
 function Board () {
     // Setup useState Hooks to update state when necessary
@@ -29,7 +37,7 @@ function Board () {
     }, [])
 
     return (
-        <div className=''>
+        <div className='Board-wrapper'>
             {lanes.map((lane) => {
                 <Lane key={lane.id} title={lane.title} loading={loading} error={error} tasks={tasks.filter((task) => task.lane === lane.id)} />
             })}
